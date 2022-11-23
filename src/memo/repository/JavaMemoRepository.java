@@ -33,4 +33,19 @@ public class JavaMemoRepository implements MemoRepository {
     public void saveMemo(Memo memo) {
         memoDB.add(memo);
     }
+
+    @Override
+    public void delOne(int memoId, String password) {
+        for (Memo memo: memoDB) {
+            if(memo.getId() != memoId) {
+                continue;
+            }
+            else if(memo.getPassword() != password) {
+                continue;
+            }
+            else {
+                memoDB.remove(memo);
+            }
+        }
+    }
 }

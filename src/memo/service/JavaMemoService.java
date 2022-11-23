@@ -51,5 +51,14 @@ public class JavaMemoService implements MemoService{
         System.out.println("수정할 게시글을 선택하세요");
     }
 
+    @Override
+    public void delOne() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("삭제할 메모 번호를 입력하세요:");
+        int memoId = scanner.nextInt();
+        System.out.println("삭제할 메모의 비밀번호를 입력하세요:");
+        String password = scanner.nextLine();
+        memoRepository.delOne(memoId, password);
+    }
 
 }

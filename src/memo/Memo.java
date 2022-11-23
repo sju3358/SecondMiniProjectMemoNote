@@ -30,4 +30,7 @@ public class Memo {
     public String getContent() {
         return content;
     }
+    public String getPassword() {
+        return password;
+    }
 }
