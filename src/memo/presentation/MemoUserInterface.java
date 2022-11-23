@@ -19,6 +19,7 @@ public class MemoUserInterface {
             System.out.println("3. 게시글 목록");
             System.out.println("4. 게시글 수정하기");
             System.out.println("5. 게시글 단건 조회");
+            System.out.println("6. 게시글 삭제");
             Scanner scanner = new Scanner(System.in);
             int selectMenu = scanner.nextInt();
             switch (selectMenu){
@@ -46,6 +47,13 @@ public class MemoUserInterface {
                         System.out.println(e.getMessage());
                     }
                     break;
+                case 6: // 게시글 삭제
+                    try {
+                        memoService.delOne();
+                    }catch (IllegalArgumentException e) {
+                        System.out.println(e.getMessage());
+                    }
+                    
             }
         }while(!exit);
     }

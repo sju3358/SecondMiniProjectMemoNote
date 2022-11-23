@@ -13,6 +13,10 @@ public interface MemoRepository {
 
     void saveMemo(Memo memo);
 
+<<<<<<< HEAD
     Optional<Memo> findById(int index);
+=======
+    void delOne(int memoId, String password);
+>>>>>>> feature/delete
 
 }
