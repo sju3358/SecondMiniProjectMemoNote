@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 public interface MemoService {
 
-    Memo getOne(int memoId);
+    Memo getOne();
 
     ArrayList<Memo> getList();
 

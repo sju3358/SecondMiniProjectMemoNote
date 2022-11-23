@@ -18,6 +18,13 @@ public class Memo {
         this.localDateTime = date;
     }
 
+    public void changeContentAndName(String content, String name){
+        this.name = name;
+        this.content=content;
+    }
+
+    // password
+
     public String getName() {
         return name;
     }
@@ -30,4 +37,8 @@ public class Memo {
     public String getContent() {
         return content;
     }
+    public String getPassword() {
+        return password;
+    }
+
 }
