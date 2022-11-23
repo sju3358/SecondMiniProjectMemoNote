@@ -4,14 +4,12 @@ import memo.Memo;
 import memo.repository.JavaMemoRepository;
 import memo.repository.MemoRepository;
 
-import java.nio.channels.FileLockInterruptionException;
 import java.time.LocalDateTime;
 
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public class JavaMemoService implements MemoService{
-
     private final MemoRepository memoRepository = new JavaMemoRepository();
     int index =1;
 
@@ -51,22 +49,13 @@ public class JavaMemoService implements MemoService{
         Scanner scanner = new Scanner(System.in);
         int inputMemoId = scanner.nextInt();
         // 서비스 레이어에선 로직이 없어야 함. -> 코드리뷰 : 남의 입장에서, 남의 시선에서 볼 것
-            for (Memo m : memoRepository.getList()) {
-                if (m.getId() == inputMemoId) {
+            for (Memo memo : memoRepository.getList()) {
+                if (memo.getId() == inputMemoId) {
                     System.out.println("비밀번호를 입력하세요");
                     String password = scanner.next();
-                    if (m.getPassword().equals(password)) { // 해결 -> 객체 책임, 캡슐화
-                        System.out.println("수정할 닉네임");
-                        String name = scanner.next();
-                        System.out.println("수정할 내용");
-                        String content = scanner.next();
-                        m.changeContentAndName(name, content);
-                    } else {
-                        System.out.println("비밀번호 입력 오류");
-                    }
+                    memo.passwordCheck(password);
                 }
             }
-        Memo memo = memoRepository.findById(inputMemoId).orElseThrow(() -> new IllegalArgumentException("수정할 게시글이 없습니다."));
+        memoRepository.findById(inputMemoId).orElseThrow(() -> new IllegalArgumentException("수정할 게시글이 없습니다."));
     }
-
 }
