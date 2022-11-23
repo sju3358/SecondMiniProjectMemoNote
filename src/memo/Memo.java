@@ -26,7 +26,6 @@ public class Memo {
 
     public void passwordCheck(String password){
         Scanner scanner = new Scanner(System.in);
-
         if(getPassword().equals(password)){
             System.out.println("수정할 닉네임");
             String name = scanner.next();
