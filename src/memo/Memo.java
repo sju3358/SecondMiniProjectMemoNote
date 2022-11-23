@@ -36,7 +36,6 @@ public class Memo {
             System.out.println("비밀번호 입력 오류");
         }
     }
-
     // password
     public String getName() {
         return name;

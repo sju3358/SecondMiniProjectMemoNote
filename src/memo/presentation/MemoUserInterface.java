@@ -60,12 +60,17 @@ public class MemoUserInterface {
     public void getList(ArrayList<Memo> memos) {
         System.out.println("=======Memo List========");
         for(Memo memo : memos) {
-            System.out.println(memo.getId()+ " "+ memo.getName()+" password : "+memo.getPassword());
+            System.out.println("게시물 번호 : " +memo.getId()+ " 작성자 : " + memo.getName()+" 내용 : "+memo.getContent());
         }
     }
     public void getOne(Memo memo) {
-        System.out.println("==================");
-        System.out.println(memo.getId() + "  " + memo.getName() + "  " + memo.getContent() + "  " + memo.getLocalDateTime());
+        System.out.println("=======================");
+        System.out.println(memo.getId()+"번 게시물 입니다.");
+        System.out.println("작성일자 : " +memo.getLocalDateTime());
+        System.out.println("작성자 : "+memo.getName());
+        System.out.println("내용 : "+memo.getContent());
+        System.out.println("=======================");
+        System.out.println("\n");
     }
 
 }

@@ -49,15 +49,15 @@ public class JavaMemoService implements MemoService{
         Scanner scanner = new Scanner(System.in);
         int inputMemoId = scanner.nextInt();
         // 서비스 레이어에선 로직이 없어야 함. -> 코드리뷰 : 남의 입장에서, 남의 시선에서 볼 것
-            for (Memo memo : memoRepository.getList()) {
-                if (memo.getId() == inputMemoId) {
-                    System.out.println("비밀번호를 입력하세요");
-                    String password = scanner.next();
-                    memo.passwordCheck(password);
-                }else{
-                    memoRepository.findById(inputMemoId).orElseThrow(() -> new IllegalArgumentException("수정할 게시글이 없습니다."));
-                }
+        for (Memo memo : memoRepository.getList()) {
+            if (memo.getId() == inputMemoId) {
+                System.out.println("비밀번호를 입력하세요");
+                String password = scanner.next();
+                memo.passwordCheck(password);
+            }else{
+                memoRepository.findById(inputMemoId).orElseThrow(() -> new IllegalArgumentException("수정할 게시글이 없습니다."));
             }
+        }
     }
 
     @Override
@@ -66,7 +66,7 @@ public class JavaMemoService implements MemoService{
         System.out.println("삭제할 메모 번호를 입력하세요:");
         int memoId = scanner.nextInt();
         System.out.println("삭제할 메모의 비밀번호를 입력하세요:");
-        String password = scanner.nextLine();
+        String password = scanner.next();
         memoRepository.delOne(memoId, password);
     }
 

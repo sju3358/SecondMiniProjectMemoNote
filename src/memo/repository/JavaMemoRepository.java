@@ -11,8 +11,8 @@ public class JavaMemoRepository implements MemoRepository {
 
     @Override
     public Memo getOne(int memoId) {
-        for (Memo memo: memoDB) {
-            if(memo.getId() == memoId) {
+        for (Memo memo : memoDB) {
+            if (memo.getId() == memoId) {
                 return memo;
             }
         }
@@ -35,17 +35,19 @@ public class JavaMemoRepository implements MemoRepository {
     public Optional<Memo> findById(int n) {
         return Optional.empty();
     }
+
+    @Override
     public void delOne(int memoId, String password) {
-        for (Memo memo: memoDB) {
-            if(memo.getId() != memoId) {
+        int index = 0;
+        for (Memo memo : memoDB) {
+            if (memo.getId() != memoId) {
                 continue;
-            }
-            else if(memo.getPassword() != password) {
+            } else if (memo.getPassword() != password) {
                 continue;
-            }
-            else {
-                memoDB.remove(memo);
+            } else {
+                index = memoDB.indexOf(memo);
             }
         }
+        memoDB.remove(index);
     }
 }
