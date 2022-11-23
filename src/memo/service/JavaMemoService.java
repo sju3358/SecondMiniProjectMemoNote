@@ -54,8 +54,9 @@ public class JavaMemoService implements MemoService{
                     System.out.println("비밀번호를 입력하세요");
                     String password = scanner.next();
                     memo.passwordCheck(password);
+                }else{
+                    memoRepository.findById(inputMemoId).orElseThrow(() -> new IllegalArgumentException("수정할 게시글이 없습니다."));
                 }
             }
-        memoRepository.findById(inputMemoId).orElseThrow(() -> new IllegalArgumentException("수정할 게시글이 없습니다."));
     }
 }
