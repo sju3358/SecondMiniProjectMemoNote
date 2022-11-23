@@ -1,6 +1,7 @@
 package memo;
 
 import java.time.LocalDateTime;
+import java.util.Scanner;
 
 public class Memo {
 
@@ -23,8 +24,21 @@ public class Memo {
         this.content=content;
     }
 
-    // password
+    public void passwordCheck(String password){
+        Scanner scanner = new Scanner(System.in);
 
+        if(getPassword().equals(password)){
+            System.out.println("수정할 닉네임");
+            String name = scanner.next();
+            System.out.println("수정할 내용");
+            String content = scanner.next();
+            changeContentAndName(name,content);
+        }else{
+            System.out.println("비밀번호 입력 오류");
+        }
+    }
+
+    // password
     public String getName() {
         return name;
     }
