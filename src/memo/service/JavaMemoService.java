@@ -15,7 +15,11 @@ public class JavaMemoService implements MemoService{
     int index =1;
 
     @Override
-    public Memo getOne(int memoId) {
+    public Memo getOne() {
+        System.out.println("조회할 메모 번호를 입력하세요:");
+        Scanner scanner = new Scanner(System.in);
+        int memoId = scanner.nextInt();
+
         return memoRepository.getOne(memoId);
     }
 
@@ -46,4 +50,6 @@ public class JavaMemoService implements MemoService{
     public void modifyMemo() {
         System.out.println("수정할 게시글을 선택하세요");
     }
+
+
 }

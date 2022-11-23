@@ -13,7 +13,13 @@ public class JavaMemoRepository implements MemoRepository {
 
     @Override
     public Memo getOne(int memoId) {
-        return memoDB.get(memoId);
+        for (Memo memo: memoDB) {
+            if(memo.getId() == memoId) {
+                return memo;
+            }
+        }
+
+        throw new IllegalArgumentException("해당하는 번호의 메모가 없습니다.");
     }
 
     @Override
