@@ -59,8 +59,6 @@ public class JavaMemoService implements MemoService{
                 }
             }
     }
-<<<<<<< HEAD
-=======
 
     @Override
     public void delOne() {
@@ -72,5 +70,4 @@ public class JavaMemoService implements MemoService{
         memoRepository.delOne(memoId, password);
     }
 
->>>>>>> feature/delete
 }
