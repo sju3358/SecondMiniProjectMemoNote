@@ -1,10 +1,10 @@
-package memoList.repository;
+package memoList.service;
 
 import memo.Memo;
 
 import java.util.ArrayList;
 
-public interface MemoListRepository {
+public interface MemoListService {
 
     Memo getOne(int memoId);
 

@@ -6,17 +6,17 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-public class JavaMemoRepository implements MemoListRepository {
+public class JavaMemoListRepository implements MemoListRepository {
 
     Map<Integer, Memo> memoDB = new HashMap<>();
 
     @Override
-    public Memo getMemo(int memoId) {
+    public Memo getOne(int memoId) {
         return memoDB.get(memoId);
     }
 
     @Override
-    public ArrayList<Memo> getAllMemoList() {
+    public ArrayList<Memo> getList() {
         ArrayList<Memo> memos = new ArrayList<>(memoDB.values());
         return memos;
     }

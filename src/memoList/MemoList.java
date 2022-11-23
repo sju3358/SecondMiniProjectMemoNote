@@ -15,4 +15,5 @@ public class MemoList {
     public List<Memo> getMemoList() {
         return memoList;
     }
+
 }
