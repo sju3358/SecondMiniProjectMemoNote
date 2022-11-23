@@ -3,7 +3,9 @@ package memo.repository;
 import memo.Memo;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class JavaMemoRepository implements MemoRepository {
 
@@ -16,7 +18,9 @@ public class JavaMemoRepository implements MemoRepository {
 
     @Override
     public ArrayList<Memo> getList() {
-        return (ArrayList<Memo>) memoDB;
+        return (ArrayList<Memo>) memoDB.stream()
+                .sorted(Comparator.comparing(Memo::getLocalDateTime).reversed())
+                .collect(Collectors.toList());
     }
 
     @Override
