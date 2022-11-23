@@ -12,4 +12,11 @@ public class Memo {
         this.content = content;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public String getContent() {
+        return content;
+    }
 }
