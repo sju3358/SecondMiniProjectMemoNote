@@ -13,5 +13,4 @@ public interface MemoService {
     void saveMemo();
 
     void modifyMemo();
-
 }
