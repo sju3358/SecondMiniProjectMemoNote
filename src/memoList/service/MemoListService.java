@@ -10,4 +10,7 @@ public interface MemoListService {
 
     ArrayList<Memo> getList();
 
+//    Memo saveNote();
+
+
 }

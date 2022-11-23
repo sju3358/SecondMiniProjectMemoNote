@@ -9,6 +9,7 @@ import java.util.ArrayList;
 public class JavaMemoListService implements MemoListService{
 
     private final MemoListRepository memoListRepository = new JavaMemoListRepository();
+
     @Override
     public Memo getOne(int memoId) {
         return memoListRepository.getOne(memoId);
@@ -18,4 +19,5 @@ public class JavaMemoListService implements MemoListService{
     public ArrayList<Memo> getList() {
         return memoListRepository.getList();
     }
+
 }
