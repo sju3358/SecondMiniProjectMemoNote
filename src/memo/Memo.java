@@ -24,6 +24,7 @@ public class Memo {
         this.content=content;
     }
 
+
     public void passwordCheck(String password){
         Scanner scanner = new Scanner(System.in);
         if(getPassword().equals(password)){
@@ -33,10 +34,11 @@ public class Memo {
             String content = scanner.next();
             changeContentAndName(name,content);
         }else{
-            System.out.println("비밀번호 입력 오류");
+            System.out.println("비밀번호를 확인하세요");
         }
     }
-    // password
+
+
     public String getName() {
         return name;
     }

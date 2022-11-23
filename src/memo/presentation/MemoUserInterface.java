@@ -10,6 +10,7 @@ import java.util.Scanner;
 public class MemoUserInterface {
 
     private final MemoService memoService = new JavaMemoService();
+
     public void run() {
         boolean exit = false;
         do{
@@ -26,10 +27,10 @@ public class MemoUserInterface {
                 case 1: // 메모 작성하기
                     memoService.saveMemo();
                     break;
-                case 2: // 종료
+                case 2: // 서비스 종료
                     exit=true;
                     break;
-                case 3: // 데이터 확인
+                case 3: // 게시글 목록
                     getList(memoService.getList());
                     break;
                 case 4: // 게시글 수정
@@ -53,16 +54,17 @@ public class MemoUserInterface {
                     }catch (IllegalArgumentException e) {
                         System.out.println(e.getMessage());
                     }
-                    
             }
         }while(!exit);
     }
+
     public void getList(ArrayList<Memo> memos) {
         System.out.println("=======Memo List========");
         for(Memo memo : memos) {
             System.out.println("게시물 번호 : " +memo.getId()+ " 작성자 : " + memo.getName()+" 내용 : "+memo.getContent());
         }
     }
+
     public void getOne(Memo memo) {
         System.out.println("=======================");
         System.out.println(memo.getId()+"번 게시물 입니다.");

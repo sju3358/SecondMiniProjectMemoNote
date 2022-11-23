@@ -36,6 +36,27 @@ public class JavaMemoRepository implements MemoRepository {
         return Optional.empty();
     }
 
+
+    @Override
+    public void modifyMemo() {
+        System.out.println("수정할 게시글을 선택하세요");
+        Scanner scanner = new Scanner(System.in);
+        int inputMemoId = scanner.nextInt();
+        if(inputMemoId<=0){
+            System.out.println("다시 입력하세요");
+        }
+        for (Memo memo : memoDB) {
+            if (memo.getId() == inputMemoId ) {
+                System.out.println("비밀번호를 입력하세요");
+                String password = scanner.next();
+                memo.passwordCheck(password);
+            }else{
+                findById(inputMemoId).orElseThrow(() -> new IllegalArgumentException("수정할 게시글이 없습니다."));
+            }
+        }
+    }
+
+
     @Override
     public void delOne(int memoId, String password) {
         int index = 0;
