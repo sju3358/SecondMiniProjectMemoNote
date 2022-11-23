@@ -4,12 +4,15 @@ import memo.Memo;
 import memo.repository.JavaMemoRepository;
 import memo.repository.MemoRepository;
 
+import java.time.LocalDateTime;
+
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public class JavaMemoService implements MemoService{
 
     private final MemoRepository memoRepository = new JavaMemoRepository();
+    int index =1;
 
     @Override
     public Memo getOne(int memoId) {
@@ -17,11 +20,8 @@ public class JavaMemoService implements MemoService{
     }
 
     @Override
-    public ArrayList<Memo> getList() {
-        return memoRepository.getList();
-    }
-    @Override
     public void saveMemo() {
+        LocalDateTime localDateTime = LocalDateTime.now();
         Scanner scanner = new Scanner(System.in);
         System.out.println("이름을 입력하세요:");
         String name = scanner.nextLine();
@@ -29,9 +29,16 @@ public class JavaMemoService implements MemoService{
         String password = scanner.nextLine();
         System.out.println("메모를 입력하세요:");
         String content = scanner.nextLine();
-        Memo memo = new Memo(name, password, content);
+        Memo memo = new Memo(index,name, password, content,localDateTime);
+        index++;
         memoRepository.saveMemo(memo);
+
         System.out.println("입력완료");
+    }
+
+    @Override
+    public ArrayList<Memo> getList() {
+        return memoRepository.getList();
     }
 
 

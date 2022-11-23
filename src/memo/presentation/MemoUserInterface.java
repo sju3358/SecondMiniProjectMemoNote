@@ -22,7 +22,6 @@ public class MemoUserInterface {
             Scanner scanner = new Scanner(System.in);
             int selectMenu = scanner.nextInt();
             switch (selectMenu){
-
                 case 1: // 메모 작성하기
                     memoService.saveMemo();
                     break;
@@ -41,6 +40,7 @@ public class MemoUserInterface {
     public void getList(ArrayList<Memo> memos) {
         System.out.println("=======Memo List========");
         for(Memo memo : memos) {
+            System.out.println(memo.getId()+ " "+ memo.getLocalDateTime());
             System.out.println(memo.getName() + "   " + memo.getContent());
         }
     }
