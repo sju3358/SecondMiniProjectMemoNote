@@ -18,10 +18,8 @@ public class JavaMemoRepository implements MemoRepository {
                 return memo;
             }
         }
-
         throw new IllegalArgumentException("해당하는 번호의 메모가 없습니다.");
     }
-
     @Override
     public ArrayList<Memo> getList() {
         return (ArrayList<Memo>) memoDB.stream()
