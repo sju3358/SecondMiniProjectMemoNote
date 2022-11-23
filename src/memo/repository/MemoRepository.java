@@ -1,16 +1,15 @@
-package memoList.service;
+package memo.repository;
 
 import memo.Memo;
 
 import java.util.ArrayList;
 
-public interface MemoListService {
+public interface MemoRepository {
 
     Memo getOne(int memoId);
 
     ArrayList<Memo> getList();
 
-//    Memo saveNote();
-
+    void saveMemo(Memo memo);
 
 }
