@@ -53,5 +53,8 @@ public class Memo {
     public String getPassword() {
         return password;
     }
+<<<<<<< HEAD
 
+=======
+>>>>>>> feature/delete
 }

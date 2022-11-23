@@ -59,4 +59,18 @@ public class JavaMemoService implements MemoService{
                 }
             }
     }
+<<<<<<< HEAD
+=======
+
+    @Override
+    public void delOne() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("삭제할 메모 번호를 입력하세요:");
+        int memoId = scanner.nextInt();
+        System.out.println("삭제할 메모의 비밀번호를 입력하세요:");
+        String password = scanner.nextLine();
+        memoRepository.delOne(memoId, password);
+    }
+
+>>>>>>> feature/delete
 }

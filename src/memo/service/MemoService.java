@@ -13,4 +13,10 @@ public interface MemoService {
     void saveMemo();
 
     void modifyMemo();
+<<<<<<< HEAD
+=======
+
+    void delOne();
+
+>>>>>>> feature/delete
 }
